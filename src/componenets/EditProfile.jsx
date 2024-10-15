@@ -42,8 +42,6 @@ const EditProfile = ({ user }) => {
     }
   };
 
-  console.log(user);
-
   return (
     <>
       <div className="flex justify-evenly my-10 flex-wrap">
