@@ -1,16 +1,20 @@
-/* eslint-disable no-unused-vars */
+// feedSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const feedSlice = createSlice({
-    name: "feed",
-    initialState: null,
-    reducers: {
-        addFeed: (state, action) =>{
-            return action.payload
-        },
-        removeFeed: (state, action) =>  null,
-    }
-})
+  name: "feed",
+  initialState: null,
+  reducers: {
+    addFeed: (state, action) => {
+      return action.payload;
+    },
+    removeUserFromFeed: (state, action) => {
+      if (state && state.data) {
+        state.data = state.data.filter((user) => user._id !== action.payload);
+      }
+    },
+  },
+});
 
-export const {addFeed} = feedSlice.actions;
+export const { addFeed, removeUserFromFeed } = feedSlice.actions;
 export default feedSlice.reducer;

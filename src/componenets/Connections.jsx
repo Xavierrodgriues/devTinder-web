@@ -6,13 +6,12 @@ import { addConnections } from "../utils/connectionSlice";
 const Connections = () => {
   const dispatch = useDispatch();
   const connections = useSelector((store) => store.connections);
-
+  console.log("Connection: ", connections);
   try {
     const getConnections = async () => {
       const res = await axios.get(BASE_URL + "/user/connections", {
         withCredentials: true,
       });
-      console.log(res.data.data);
       dispatch(addConnections(res.data.data));
     };
 
